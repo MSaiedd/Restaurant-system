@@ -26,7 +26,7 @@ The system follows the **MVC architectural pattern**, separating concerns to imp
 - The **Controller** (`Customer_Dashboard_Controller.java`) handles the input and calls `Reservation.java` (**Model**) to process the request.
 - The **View** (`Customer_Dashboard.fxml`) updates to reflect the reservation status.
 
-![MVC Architecture](images/mvc.png)
+![MVC Architecture](./images/mvc.png)
 
 ---
 
@@ -54,7 +54,7 @@ The database is designed using a **relational schema** with well-defined **forei
 - **Tables**: Manages table availability and seating.
 
 📌 **Entity-Relationship Diagram (ERD):**
-![Database ERD](images/erd.png)
+![Database ERD](./images/erd.png)
 
 ## 🚀 Features
 - ✅ **User Authentication** (Secure login and role-based access)
