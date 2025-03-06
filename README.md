@@ -81,5 +81,5 @@ The database is designed using a **relational schema** with well-defined **forei
 ## 🎯 Conclusion
 The **Restaurant Management System** is a **feature-rich, well-structured** desktop application for restaurant management...
 
-📌 **Note:** This project is developed for **educational purposes** and is not production-ready. While it demonstrates key concepts such as **MVC, Singleton, and DAO patterns**, significant enhancements are needed for real-world deployment, including advanced security measures, scalability improvements, and comprehensive testing.
+📌 **Note:** This project is developed for **Educational Purposes** and is not production-ready. While it demonstrates key concepts such as **MVC, Singleton, and DAO patterns**, significant enhancements are needed for real-world deployment, including advanced security measures, scalability improvements, and comprehensive testing.
 
