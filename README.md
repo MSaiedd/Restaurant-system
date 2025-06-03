@@ -1,85 +1,109 @@
-# 🍽️ Restaurant Management System Documentation
+# Restaurant Management System Documentation
 
-## 📌 Overview
-The **Restaurant Management System** is a **JavaFX-based** desktop application designed to streamline restaurant operations. It allows **customers** to make reservations and place orders, **chefs** to track and prepare meals, **waiters** to manage table service, and **managers** to oversee restaurant operations, employee management, and order tracking.
+## 📁 Overview
 
-The system follows the **MVC (Model-View-Controller) architecture pattern**, ensuring a **modular, scalable, and maintainable** codebase. It uses **JavaFX for UI**, **MySQL for database management**, and **JDBC for data persistence**.
 
----
 
-## 📌 Software Architecture & Design Patterns
+This document provides a comprehensive overview of the **Restaurant Management System**, a **JavaFX-based desktop application** that streamlines restaurant operations through role-based access control and integrated business workflows.
 
-### 🛠 Architecture Pattern: MVC (Model-View-Controller)
-
-The system follows the **MVC architectural pattern**, separating concerns to improve **maintainability, scalability, and testability**.
-
-#### 🔹 MVC Breakdown in This Project:
-
-| **Layer** | **Description** | **Files** |
-|-----------|---------------|-----------|
-| **Model** | Represents the **business logic** and data structure. | `User.java`, `Customer.java`, `Employee.java`, `Reservation.java`, etc. |
-| **View** | Handles the **UI layout and design** using JavaFX FXML. | `Login.fxml`, `Signup.fxml`, `Manager_Dashboard.fxml`, etc. |
-| **Controller** | Manages **user interactions**, updates the model, and refreshes the view. | `Login_Controller.java`, `Customer_Dashboard_Controller.java`, etc. |
-
-📌 **Example of MVC in Action**:  
-✅ When a **customer reserves a table**:
-- The **Controller** (`Customer_Dashboard_Controller.java`) handles the input and calls `Reservation.java` (**Model**) to process the request.
-- The **View** (`Customer_Dashboard.fxml`) updates to reflect the reservation status.
-
-![MVC Architecture](./images/MVC.png)
+For more details:
+- [Architecture & Design Patterns](#architecture--design-patterns)
+- [User Interfaces & Dashboards](#)
+- [Database Design](#)
 
 ---
 
-### 🛠 Design Patterns Used
+## 🎯 Purpose and Scope
 
-#### 1️⃣ Singleton Pattern (Creational Design Pattern)
-- Ensures that only **one database connection** exists throughout the application.
-- Prevents **multiple database connections**, improving **performance and resource management**.
+The system is designed for educational use and follows **enterprise-level design principles**. It enables:
 
-#### 2️⃣ Data Access Object (DAO) Pattern (Structural Design Pattern)
-- Separates database operations from business logic.
-- Provides a structured way to interact with the database.
-- Enhances code reusability and maintainability.
+- Streamlined restaurant operations
+- Secure, role-based access
+- Clean separation of concerns via MVC architecture
 
+---
 
-## 📊 Database Schema & ERD
-The database is designed using a **relational schema** with well-defined **foreign key relationships** to ensure **data integrity**. The key entities include:
+## 🏗️ System Architecture Overview
 
-- **Users**: Stores login credentials for all users.
-- **Customers**: Contains customer details and their reservations.
-- **Employees**: Stores employee information, including roles.
-- **Reservations**: Handles table reservations.
-- **Orders**: Tracks customer orders.
-- **Menu Items**: Stores restaurant menu items.
-- **Tables**: Manages table availability and seating.
+The application implements a **layered MVC (Model-View-Controller)** architecture. Each user role is provided a tailored dashboard:
 
-📌 **Entity-Relationship Diagram (ERD):**
-![Database ERD](./images/erd.png)
+### High-Level MVC Architecture
+![MVC Architecture](./Images/img1.png)
 
-## 🚀 Features
-- ✅ **User Authentication** (Secure login and role-based access)
-- ✅ **Table Reservation System** (Real-time availability tracking)
-- ✅ **Menu & Order Management** (Track, update, and process orders)
-- ✅ **Manager Dashboard** (Employee & revenue tracking)
+---
 
-## 🛠️ Technologies Used
-| Technology | Purpose |
-|------------|---------|
-| **JavaFX** | GUI Development |
-| **MySQL** | Database Management |
-| **JDBC** | Database Connectivity |
-| **FXML** | UI Layout Separation |
-| **DAO Pattern** | Database Abstraction |
-| **Singleton Pattern** | Database Connection Handling |
+## 🔄 Core Business Functions
 
-## 📖 Setup & Installation
-### 📌 Prerequisites
-- **Java 17+ (JDK Installed)**
-- **MySQL Database Server Installed**
-- **JavaFX SDK Installed**
+| Function           | Description                                             | Primary Users              |
+|--------------------|---------------------------------------------------------|----------------------------|
+| **Table Reservation** | Real-time booking with availability tracking            | Customers, Waiters         |
+| **Order Management**  | Menu browsing, order placement, preparation tracking   | Customers, Chefs, Waiters  |
+| **Staff Management**  | Employee admin and role assignment                     | Managers                   |
+| **Revenue Tracking**  | Financial reporting and analytics                      | Managers                   |
 
-## 🎯 Conclusion
-The **Restaurant Management System** is a **feature-rich, well-structured** desktop application for restaurant management...
+---
 
-📌 **Note:** This project is developed for **Educational Purposes** and is not production-ready. While it demonstrates key concepts such as **MVC, Singleton, and DAO patterns**, significant enhancements are needed for real-world deployment, including advanced security measures, scalability improvements, and comprehensive testing.
+## 🧑‍💼 Role-Based Access Control
+![Role-Based Access Control](Images/img2.png)
+
+---
+
+## ⚙️ Technology Stack
+
+| Technology   | Version     | Purpose                                         |
+|--------------|-------------|-------------------------------------------------|
+| JavaFX       | Latest      | GUI framework for rich desktop applications     |
+| MySQL        | 8.x         | Relational database for data persistence        |
+| JDBC         | Standard    | Java Database Connectivity                      |
+| Maven        | N/A         | Build tool and dependency management            |
+| FXML         | Standard    | UI layout and separation from logic             |
+
+---
+
+## 📦 Dependencies and Configuration
+
+Managed via **Maven**, including:
+
+- `MySQL Connector/J`: Database connectivity
+- `JavaFX controls & FXML`: GUI layout and event management
+- `JUnit`: Unit testing framework
+
+---
+
+## 🗃️ Database Integration Architecture
+![DAO Pattern](./Images/img3.png)
+
+Implements the **DAO (Data Access Object)** pattern to abstract business logic from database interactions.
+
+---
+
+## 🧱 Key Design Patterns
+
+### 1. MVC (Model-View-Controller)
+
+- **Models**: `User.java`, `Customer.java`, `Employee.java`, etc.
+- **Views**: FXML files — `Login.fxml`, `Customer_Dashboard.fxml`, etc.
+- **Controllers**: Java classes — `Login_Controller.java`, `Customer_Dashboard_Controller.java`, etc.
+
+### 2. Singleton Pattern
+
+- **Implementation**: `DatabaseConnection` class
+- **Purpose**: Guarantees a single DB connection instance for pooling efficiency
+
+### 3. Data Access Object (DAO)
+
+- **Implementation**: `User_DAO`, `Customer_DAO`, etc.
+- **Purpose**: Separation of business logic and database logic
+
+---
+
+## ✅ System Capabilities Summary
+
+- 🔐 **Authentication System**: Role-based secure login (via `Validator` class)
+- 🪑 **Reservation Management**: Real-time booking using `Reservation` and `Table` models
+- 🍽️ **Order Processing**: Full order flow from customer to kitchen
+- 🧑‍💼 **Staff Administration**: Manage employees and assign roles
+- 💾 **Data Persistence**: Reliable MySQL storage using DAO + connection pooling
+
+> This project demonstrates **clean code**, **scalable architecture**, and **practical restaurant workflows**, built with **educational clarity** and **real-world relevance**.
 
